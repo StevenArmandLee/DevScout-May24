@@ -16,6 +16,7 @@ struct DetailScreen<ViewModel, Builder>: View where ViewModel: DetailScreenModel
             Button("Logout") {
                 viewModel.onLogoutPressed()
             }
+            NavigationLink("Go to Speech To text", value: "Number \(viewModel.number.value)")
         }
         .task{
             await viewModel.onAppear()

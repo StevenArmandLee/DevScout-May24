@@ -11,7 +11,7 @@ protocol MainDependency{
     var authKit: AuthKit {get set}
 }
 
-class MainComponent: Component<MainDependency>, DetailDependency {
+class MainComponent: Component<MainDependency>, DetailDependency, SpeakDependency {
     var authKit: AuthKit
     
     
@@ -24,8 +24,10 @@ class MainComponent: Component<MainDependency>, DetailDependency {
 protocol MainBuildable {
     associatedtype Screen: View
     associatedtype Detail: View
+    associatedtype Speech: View
     @ViewBuilder @MainActor func build() -> Screen
     @ViewBuilder @MainActor func buildDetail(for number: Number) -> Detail
+    @ViewBuilder @MainActor func buildSpeech() -> Speech
 }
 
 class MainBuilder: MainBuildable {
@@ -41,5 +43,8 @@ class MainBuilder: MainBuildable {
     }
     @ViewBuilder @MainActor func buildDetail(for number: Number) -> some View {
         DetailBuilder(component: detailComponent).build(for: number)
+    }
+    @ViewBuilder @MainActor func buildSpeech() -> some View {
+        SpeakBuilder(component: SpeakComponent(dependency: component)).build()
     }
 }

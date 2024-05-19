@@ -21,6 +21,9 @@ struct MainScreen<ViewModel, Builder>: View where ViewModel: MainScreenModelProt
             .navigationDestination(for: Number.self) { number in
                 builder.buildDetail(for: number)
             }
+            .navigationDestination(for: String.self) { number in
+                builder.buildSpeech()
+            }
         }
         
     }
@@ -39,6 +42,9 @@ struct MainScreen<ViewModel, Builder>: View where ViewModel: MainScreenModelProt
             Text("Mock")
         }
         func buildDetail(for number: Number) -> some View {
+            Text("Mock")
+        }
+        func buildSpeech() -> some View {
             Text("Mock")
         }
     }
