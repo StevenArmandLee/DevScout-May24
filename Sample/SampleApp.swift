@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct SampleApp: App {
+    let component: RootComponent = RootComponent()
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -25,7 +26,7 @@ struct SampleApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootBuilder(component: component).build()
         }
         .modelContainer(sharedModelContainer)
     }
