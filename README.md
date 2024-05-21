@@ -4,7 +4,7 @@
 
 In my Dev Scout talk on May 24, titled "**Lesson Zero**", I discussed how we can create a scalable and robust app by strengthening our foundation. It doesn't matter what kind of architecture you use—as long as it works and is unit testable, it should scale effectively. This sample project demonstrates the SMB architecture that I created by following my principals, where most of the code is unit testable.
 
-##Overview
+## Overview
 
 This sample app showcases the SMB architecture, designed to ensure scalability and robustness through comprehensive unit testing.
 
